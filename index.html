@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projektlandkarte HSBI</title>
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Cytoscape.js for network visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+    <!-- Cytoscape layout extensions -->
+    <script src="https://unpkg.com/layout-base/layout-base.js"></script>
+    <script src="https://unpkg.com/cose-base/cose-base.js"></script>
+    <script src="https://unpkg.com/cytoscape-fcose/cytoscape-fcose.js"></script>
+    <!-- noUiSlider for range slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <!-- Header -->
+            <div class="header">
+                <div class="logo-container">
+                    <img src="assets/image.svg" alt="HSBI Logo" style="height: 50px;">
+                </div>
+                <p class="subtitle">Interaktive Visualisierung von Forschungsprojekten der HSBI</p>
+                <div class="legend">
+                    <span><span class="dot project-dot"></span>Projekte</span>
+                    <span><span class="dot leader-dot"></span>Personen</span>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-card">
+                <div class="card-header">Einstellungen</div>
+                <div class="card-body">
+                    <label for="leader-filter">Personen:</label>
+                    <div class="tag-filter-container" id="leader-filter-container">
+                        <!-- Selected tags will be added here -->
+                        <input type="text" class="tag-filter-input" id="leader-filter-input" placeholder="Personen auswählen …">
+                        <span class="tag-filter-clear" id="leader-filter-clear">✕</span>
+                    </div>
+                    <div class="tag-filter-dropdown" id="leader-filter-dropdown">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+
+                    <label for="keyword-filter">Themen:</label>
+                    <div class="tag-filter-container" id="keyword-filter-container">
+                        <!-- Selected tags will be added here -->
+                        <input type="text" class="tag-filter-input" id="keyword-filter-input" placeholder="Themen auswählen …">
+                        <span class="tag-filter-clear" id="keyword-filter-clear">✕</span>
+                    </div>
+                    <div class="tag-filter-dropdown" id="keyword-filter-dropdown">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+
+                    <label for="organization-filter">Organisationen:</label>
+                    <div class="tag-filter-container" id="organization-filter-container">
+                        <!-- Selected tags will be added here -->
+                        <input type="text" class="tag-filter-input" id="organization-filter-input" placeholder="Organisationen auswählen …">
+                        <span class="tag-filter-clear" id="organization-filter-clear">✕</span>
+                    </div>
+                    <div class="tag-filter-dropdown" id="organization-filter-dropdown">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+
+                    <label for="fachbereich-filter">Fachbereich:</label>
+                    <div class="tag-filter-container" id="fachbereich-filter-container">
+                        <!-- Selected tags will be added here -->
+                        <input type="text" class="tag-filter-input" id="fachbereich-filter-input" placeholder="Fachbereiche auswählen …">
+                        <span class="tag-filter-clear" id="fachbereich-filter-clear">✕</span>
+                    </div>
+                    <div class="tag-filter-dropdown" id="fachbereich-filter-dropdown">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+
+                    <label for="year-slider">Zeitraum:</label>
+                    <div class="range-slider-container">
+                        <div id="year-slider"></div>
+                        <div class="year-labels">
+                            <span id="year-min"></span>
+                            <span id="year-max"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-card">
+                <div class="card-header">Netzwerkstatistik</div>
+                <div class="card-body">
+                    <div id="network-stats">
+                        <!-- Statistics will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Network Controls -->
+            <div class="network-controls">
+                <button id="reset-view">Reset View</button>
+                <button id="export-png">Export PNG</button>
+            </div>
+
+            <!-- Network Graph -->
+            <div id="project-network"></div>
+
+            <!-- Details Panel -->
+            <div class="details-card">
+                <div class="card-body">
+                    <div id="element-details">
+                        Klicken Sie auf einen Knoten, um Details anzuzeigen
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/data-processor.js"></script>
+    <script src="js/network.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/details.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

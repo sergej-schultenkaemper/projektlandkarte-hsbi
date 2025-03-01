@@ -1,0 +1,60 @@
+/* Theme Colors - based on COLOR_SCHEMES from Python */
+:root {
+    /* Project Colors */
+    --project-primary: #c8a591;
+    --project-secondary: #c0392b;
+    --project-highlight: #FFD700;
+    --project-text: #333333;
+
+    /* Leader Colors */
+    --leader-primary: #6eafc8;
+    --leader-secondary: #2980b9;
+    --leader-highlight: #FFD700;
+    --leader-text: #333333;
+
+    /* Edge Colors */
+    --edge-default: #95a5a6;
+    --edge-highlight: #FFD700;
+    --edge-faded: #2c3e50;
+
+    /* Background Color */
+    --background: #ffffff;
+}
+
+/* Node Colors */
+.project-dot {
+    background-color: var(--project-primary);
+    border: 2px solid var(--project-secondary);
+}
+
+.leader-dot {
+    background-color: var(--leader-primary);
+    border: 2px solid var(--leader-secondary);
+}
+
+/* Special Highlight Styles */
+.highlight {
+    background-color: var(--project-highlight);
+}
+
+/* Text Colors */
+.project-text {
+    color: var(--project-text);
+}
+
+.leader-text {
+    color: var(--leader-text);
+}
+
+/* Edge Styles */
+.edge-default {
+    stroke: var(--edge-default);
+}
+
+.edge-highlight {
+    stroke: var(--edge-highlight);
+}
+
+.edge-faded {
+    stroke: var(--edge-faded);
+}
